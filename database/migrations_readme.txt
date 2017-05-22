@@ -1,0 +1,3 @@
+-memberbetlog
+	-SectionNo
+	-MemberNo
