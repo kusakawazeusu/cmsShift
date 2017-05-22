@@ -28,7 +28,7 @@ class shiftdw extends Controller
         $drop = DB::table('MemberCashlessTrans')->where('SessionNo',$classid)
                                     ->where($field,'like',$search)
                                     ->select('TransNo','Location','SessionNo','TransTime','TransType','Amount','NewBalance')
-                                    ->orderby('TransNo')
+                                    ->orderBy('TransTime','desc')
                                     ->offset($offset)
                                     ->limit($num)
                                     ->get();

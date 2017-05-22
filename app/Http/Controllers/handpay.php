@@ -15,7 +15,7 @@ class handpay extends Controller
 
     public function updatedata($id,$amount,$group,$level,$status,$overrideby)
     {
-        DB::table('handpay')->where('SeqNo',$id)
+        DB::table('Handpay')->where('SeqNo',$id)
                             ->update([
                                'Amount' => $amount,
                                'ProgressiveGroup' => $group,

@@ -39,9 +39,6 @@ class memberbetlog extends Seeder
                 'AccountingSession' => '20',
                 'Mnum' => $mnum->MNum
             ]);
-
-            
-
             
         }
     }

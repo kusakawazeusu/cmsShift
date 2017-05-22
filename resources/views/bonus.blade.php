@@ -1,16 +1,16 @@
 @extends('main')
 
-@section('title','交班系統 - 入抄變動')
+@section('title','交班系統 - 會員贈點')
 
 @section('header')
 
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:12%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 開啟帳務日</div>
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 手動洗分</div>
 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 會員上下分</div>
-<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> 入抄變動</div>
-<div class="progress-bar" role="progressbar" style="width:11%">機台紀錄變動</div>
-<div class="progress-bar" role="progressbar" style="width:11%">班表紀錄變動</div>
-<div class="progress-bar" role="progressbar" style="width:11%">會員贈點變動</div>
+<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 入抄變動</div>
+<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>機台紀錄變動</div>
+<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>班表紀錄變動</div>
+<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:11%"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>會員贈點變動</div>
 <div class="progress-bar" role="progressbar" style="width:11%">促銷方案變動</div>
 <div class="progress-bar" role="progressbar" style="width:11%">關帳</div>
 <hr>
@@ -26,11 +26,11 @@ th.dt-center, td.dt-center { text-align: center; }
 
 <script>
 
-var search_now = 'Period.Mnum';
+var search_now = 'MemberNo';
 
 $(document).ready(function(){
 	
-	var entries = {{ $num_of_entries }};  // 紀錄總共有幾筆data
+	var entries = 0;  // 紀錄總共有幾筆data
 	var show_num = 5;  // 紀錄顯示筆數，預設五筆
 	var page = 0;  // 記錄目前第幾頁
 	var pages_num = Math.ceil(entries / show_num);  // 記錄總共有幾頁
@@ -54,16 +54,11 @@ $(document).ready(function(){
 
 	function query_data(page,field,keyword)
 	{	
-		if($("#exception").prop('checked'))
-			var excep = 1;
-		else
-			var excep = 0;
-
 		if(keyword == '')
 			keyword = 'all';
 
 		$.ajax({
-			url: '/soft/{{ $Drop }}/'+page+'/'+show_num +'/'+ field + '/' + keyword + '/' + excep,
+			url: '/shift/bonus/get/{{ Session('ClassID') }}/'+page+'/'+show_num +'/'+ field + '/' + keyword,
 			type: 'GET',
 			dataType: 'json'
 		}).done(function(Response){

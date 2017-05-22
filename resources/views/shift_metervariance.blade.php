@@ -309,7 +309,7 @@ $(document).ready(function(){
 </div><!-- /.modal -->
 
 
-<h4 class="text-center"><a href="/shift/softdropvariance/{{$date}}" class="btn btn-sm btn-success">上一個項目</a> 機台記錄變動：{{$date}} <a href="dw" class="btn btn-sm btn-danger">完成「機台記錄變動」</a></h4>
+<h4 class="text-center"><a href="{{ url('/shift/softdropvariance',[$date]) }}" class="btn btn-sm btn-success">上一個項目</a> 機台記錄變動：{{$date}} <a href="dw" class="btn btn-sm btn-danger">完成「機台記錄變動」</a></h4>
 
 <hr>
 <div class="row">

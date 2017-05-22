@@ -60,7 +60,7 @@ class metervariance extends Controller
                                    ->get();
 
         $returnError = '';
-        $restriction = DB::table('restriction')->first();
+        $restriction = DB::table('Restriction')->first();
 
         for($i=0;$i<$num;$i++)
         {
@@ -98,7 +98,7 @@ class metervariance extends Controller
 
     public function showMetervariance($date)
     {
-        $restriction = DB::table('restriction')->first();
+        $restriction = DB::table('Restriction')->first();
 
         return view('shift_metervariance',['date'=>$date,'restriction'=>$restriction]);
     }

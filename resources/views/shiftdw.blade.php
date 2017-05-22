@@ -180,7 +180,7 @@ $(document).ready(function(){
 
 </script>
 
-<h4 class="text-center"><a href="{{ url('/shift/handpay',[$date]) }}" class="btn btn-sm btn-success">上一個項目</a> 班別代號：{{ Session('ClassID') }} <a href="softdropvariance/{{ $date }}" class="btn btn-sm btn-danger">完成「會員上下分」</a></h4>
+<h4 class="text-center"><a href="{{ url('/shift/handpay',[$date]) }}" class="btn btn-sm btn-success">上一個項目</a> 會員上下分 <a href="{{ url('/shift/softdropvariance',[$date]) }}" class="btn btn-sm btn-danger">完成「會員上下分」</a></h4>
 
 <hr>
 <div class="row">

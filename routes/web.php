@@ -236,6 +236,9 @@ Route::get('/shift/metervariance/getdata/{date}/{page}/{num}/{field}/{keyword}',
 Route::get('/shift/metervariance/getperiod/{date}/{mnum}','metervariance@getPeriodData');
 Route::get('/shift/metervariance/update/{id}/{games}/{coinin}/{coinout}/{billin}/{jackpot}/{ticketin}/{ticketout}/{xtracredit}/{cancelcredit}/{progressive}','metervariance@update');
 
+// Bonus Variance
+Route::get('/shift/bonus/{date}','bonus@showBonus');
+
 // api testing
 Route::get('/softsearch/{date}/{keyword}/{field}/{exception}','shift@softsearch');
 Route::get('/soft/{date}/{page}/{num}/{field}/{keyword}/{exception}','shift@page');

@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
         //$this->call('SoftDropVarianceSeeder');
         //$this->call('SessionCloseSeeder');
 
-        $this->call('period');
-
+        //$this->call('period');
+        $this->call('memberacctranslist');
         //$this->call('memberbetlog');
         //$this->call('handpay');
         //$this->call('arcade_game_type_group_seeder');
