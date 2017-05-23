@@ -222,7 +222,7 @@ class operator extends Controller
     // 新增/修改 事件警示
     public function show_event()
     {
-        $event = DB::table('EventDef')->orderby('code')->get();
+        $event = DB::table('eventdef')->orderby('code')->get();
 
         return view('operator_event',['events'=>$event]);
     }
@@ -236,7 +236,7 @@ class operator extends Controller
         if($request->get('new-screenflicker') == 'on') $screenflicker = 1; else $screenflicker = 0;
         if($request->get('new-audio') == 'on') $audio = 1; else $audio = 0;
 
-        DB::table('EventDef')
+        DB::table('eventdef')
             ->insert([
               'code' => $request->input('event_code'),
               'EventDescription' => $request->input('event_description'),
@@ -258,7 +258,7 @@ class operator extends Controller
         if($request->get('screenflicker'.$id) == 'on') $screenflicker = 1; else $screenflicker = 0;
         if($request->get('audio'.$id) == 'on') $audio = 1; else $audio = 0;
 
-        DB::table('EventDef')
+        DB::table('eventdef')
             ->where('id',$id)
             ->update(['code' => $request->input('event_code'),
                       'EventDescription' => $request->input('event_description'),
@@ -273,9 +273,9 @@ class operator extends Controller
     // 新增/修改 事件警示 - 刪除
     public function delete_event($id)
     {
-        $description = DB::table('EventDef')->where('id',$id)->pluck('EventDescription')->first();
+        $description = DB::table('eventdef')->where('id',$id)->pluck('EventDescription')->first();
 
-        DB::table('EventDef')
+        DB::table('eventdef')
             ->where('id',$id)
             ->delete();
 
@@ -287,5 +287,15 @@ class operator extends Controller
         
     }
 
+    // 修改系統參數
+    public function show_configure()
+    {
+        return view('operator_configure');
+    }
+    public function update_configure(Request $request)
+    {
+        DB::table('configure')->where('id','1')->update(['Language'=>$request->input('language'), 'ShowEntries'=>$request->input('numEntries')]);
+        return back();
+    }
 
 }

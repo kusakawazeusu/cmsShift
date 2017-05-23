@@ -27,7 +27,7 @@ var searching = "%";
 $(document).ready(function(){
 
 	var entries = 0;  // 紀錄總共有幾筆data
-	var show_num = 5;  // 紀錄顯示筆數，預設五筆
+	var show_num = {{ $config->ShowEntries }};  // 紀錄顯示筆數，預設五筆
 	var page = 0;  // 記錄目前第幾頁
 	var pages_num = Math.ceil(entries / show_num);  // 記錄總共有幾頁
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		}).done(function(Response){
 			t.clear().draw();
 
-			for( i=0; i<Math.min($("#show").val(),Object.keys(Response).length -1 ) ; i++ )
+			for( i=0; i<Math.min(show_num,Object.keys(Response).length -1 ) ; i++ )
 			{
 				t.row.add([
 					Response[i].Mnum,
@@ -318,10 +318,10 @@ $(document).ready(function(){
 			<div class="form-group">
 				<label for="show">顯示筆數：</label>
 				<select class="form-control input-sm" id="show">
-					<option value="5">5</option>
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="all">ALL</option>
+					<option @if($config->ShowEntries == 5) selected @endif  value="5">5</option>
+					<option @if($config->ShowEntries == 10) selected @endif value="10">10</option>
+					<option @if($config->ShowEntries == 20) selected @endif value="20">20</option>
+					<option @if($config->ShowEntries == 1) selected @endif value="all">ALL</option>
 				</select>
 			</div>
 		</form>

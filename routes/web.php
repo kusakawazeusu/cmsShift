@@ -210,9 +210,14 @@ Route::get('/event','operator@show_event')->middleware('CheckAuth:3');
 Route::post('/event/edit/{id}','operator@edit_event')->middleware('CheckAuth:3');
 Route::post('/event/newevent','operator@new_event')->middleware('CheckAuth:3');
 Route::get('/event/delete/{id}','operator@delete_event')->middleware('CheckAuth:3');
-});
+
 // 新增/修改班別
 Route::get('/class','operator@show_class')->middleware('CheckAuth:3');
+// 修改系統參數
+Route::get('/configure','operator@show_configure')->middleware('CheckAuth:3');
+Route::post('/configure','operator@update_configure')->middleware('CheckAuth:3');
+});
+
 // 交班系統 (Layout only)
 Route::get('/shift/startperiod','shift@show_startperiod');
 Route::get('/shift/softdropvariance/{date}','shift@show_softdropvariance');

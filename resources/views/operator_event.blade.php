@@ -17,6 +17,14 @@
 
 $(document).ready(function(){
 
+	var t = $('#datatables').DataTable({
+			paging: false,
+			"bInfo" : false,
+			"bFilter": false,
+			fixedHeader: true,
+			
+		});
+
 	$("#error_msg").delay( 2000 ).fadeOut("slow");
 	$("#msg").delay( 2000 ).fadeOut("slow");
 
@@ -34,7 +42,7 @@ $(document).ready(function(){
 
 <a data-toggle="modal" data-target="#newevent" style="margin-left:10px" class="btn btn-primary">新增事件</a>
 
-<table id="datatables">
+<table style="padding-top:30px" class="table table-striped table-hover" id="datatables">
 	<thead>
 		<tr>
 			<th>EVENT CODE</th>

@@ -17,39 +17,40 @@
 
 $(document).ready(function(){
 
-	$("#div1").fadeIn("fast",function(){
-		$("#div2").fadeIn("fast",function(){
-			$("#div3").fadeIn("fast",function(){
-				$("#div4").fadeIn("fast");
-			});
-		});
-	});
+	$(".opFunction").fadeIn("fast");
 
 
 });
 </script>
 
 <div class="row">
-	<div id="div1" style="display:none" class="col-md-2 col-md-offset-3">
+	<div style="display:none" class="col-md-2 col-md-offset-3 opFunction">
 		<img class="img-responsive" src="{{ asset('assets/icon/operator.png') }}"></img>
 		<a href="{{ url('/operator/manage') }}" class="btn btn-primary btn-block">新增/修改管理員</a>
 	</div>
 
-	<div id="div2" style="display:none" class="col-md-2 col-md-offset-2">
+	<div id="div2" style="display:none" class="col-md-2 col-md-offset-2 opFunction">
 		<img class="img-responsive" src="{{ asset('assets/icon/group.png') }}"></img>
 		<a href="{{ url('/operator/gmanage') }}" class="btn btn-primary btn-block">新增/修改管理群組</a>
 	</div>
 </div>
 <br>
 <div class="row">
-	<div id="div3" style="display:none" class="col-md-2 col-md-offset-3">
+	<div style="display:none" class="col-md-2 col-md-offset-3 opFunction">
 		<img class="img-responsive" src="{{ asset('assets/icon/event.png') }}"></img>
 		<a href="{{ url('/operator/event') }}" class="btn btn-primary btn-block">新增/修改事件警示</a>
 	</div>
 
-	<div id="div4" style="display:none" class="col-md-2 col-md-offset-2">
-		<img class="img-responsive" src="{{ asset('assets/icon/event.png') }}"></img>
+	<div style="display:none" class="col-md-2 col-md-offset-2 opFunction">
+		<img class="img-responsive" src="{{ asset('assets/icon/session.png') }}"></img>
 		<a href="{{ url('/operator/class') }}" class="btn btn-primary btn-block">新增/修改班別</a>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div style="display:none" class="col-md-2 col-md-offset-3 opFunction">
+		<img class="img-responsive" src="{{ asset('assets/icon/configure.png') }}"></img>
+		<a href="{{ url('/operator/configure') }}" class="btn btn-primary btn-block">修改系統參數</a>
 	</div>
 </div>
 @endsection

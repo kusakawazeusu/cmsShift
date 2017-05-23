@@ -17,6 +17,14 @@
 
 $(document).ready(function(){
 
+	var t = $('#datatables').DataTable({
+			paging: false,
+			"bInfo" : false,
+			"bFilter": false,
+			fixedHeader: true,
+			
+		});
+
 	$("#sort").change(function(){
 
 		if( $(this).find(":selected").text() == 'ALL' )
@@ -78,7 +86,7 @@ $(document).ready(function(){
 
 
 
-<table id="datatables">
+<table style="padding-top:30px" class="table table-striped table-hover" id="datatables">
 	<thead>
 		<tr>
 			<th>ID</th>
